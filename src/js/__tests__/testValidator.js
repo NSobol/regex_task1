@@ -18,6 +18,12 @@ test('Тестирование корректного никнейма', () => {
   expect(resolved.validateUsername('zag13aadka-13a')).toBe(exp);
 });
 
+test('Тестирование корректного никнейма', () => {
+  const exp = 'Никнейм корректен';
+  const resolved = new Validator();
+  expect(resolved.validateUsername('za1g13a2a22_a1a')).toBe(exp);
+});
+
 test('Тестирование некорректного никнейма', () => {
   const exp = 'Имя не должно содержать подряд более трёх цифр, а также начинаться и заканчиваться цифрами, символами подчёркивания или тире.';
   const resolved = new Validator();
@@ -28,4 +34,10 @@ test('Тестирование некорректного никнейма', () 
   const exp = 'Имя не должно содержать подряд более трёх цифр, а также начинаться и заканчиваться цифрами, символами подчёркивания или тире.';
   const resolved = new Validator();
   expect(resolved.validateUsername('z123a1233gadka')).toBe(exp);
+});
+
+test('Тестирование некорректного никнейма', () => {
+  const exp = 'Имя не должно содержать подряд более трёх цифр, а также начинаться и заканчиваться цифрами, символами подчёркивания или тире.';
+  const resolved = new Validator();
+  expect(resolved.validateUsername('zagЫЫЫaa_aa')).toBe(exp);
 });
